@@ -20,13 +20,14 @@ const Container = styled.div`
   flex-direction:row;
 `
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"))
-
 function App() {
   const [minFilter, setMinFilter] = useState("")
   const [maxFilter, setMaxFilter] = useState("")
   const [searchFilter, setSearchFilter] = useState("")
-  const [cart,setCart] = useState([])
+  const [cart,setCart] = useState(()=>{
+    const cartLocal = localStorage.getItem("cart")
+    return cartLocal!==null?JSON.parse(cartLocal):[]
+  })
 
   useEffect(() =>{
     localStorage.setItem("cart",JSON.stringify(cart))

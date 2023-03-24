@@ -42,9 +42,8 @@ export const Cart = (props) =>{
                 />
                 )
             })} 
-          {<p>Valor Total:
+          {props.cart?totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }):0}
         
-            {totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>} 
             <ClearButton onClick={clearCart}>Limpar Carrinho</ClearButton>
         </CartContainer>
 
