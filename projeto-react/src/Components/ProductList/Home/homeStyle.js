@@ -14,7 +14,7 @@ export const HomeContainer =styled.div`
 export const HomeHeader = styled.div`
     display:flex;
     flex-direction:row;
-    justify-content:space-around;
+    gap:0.3rem;
     padding-top:1rem;
 `
 

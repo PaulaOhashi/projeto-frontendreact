@@ -13,20 +13,20 @@ const MainContainer = styled.main`
     display:flex;
     flex-direction:column;
     background-color:beige;
-    
 `
+
 const Container = styled.div`
   display:flex;
   flex-direction:row;
 `
 
-const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"))//"[]"
+const cartFromLocalStorage = JSON.parse(localStorage.getItem("cart"))
 
 function App() {
-  const [minFilter, setMinFilter] = useState(0)
-  const [maxFilter, setMaxFilter] = useState(1000)
+  const [minFilter, setMinFilter] = useState("")
+  const [maxFilter, setMaxFilter] = useState("")
   const [searchFilter, setSearchFilter] = useState("")
-  const [cart,setCart] = useState(cartFromLocalStorage)
+  const [cart,setCart] = useState([])
 
   useEffect(() =>{
     localStorage.setItem("cart",JSON.stringify(cart))
@@ -44,7 +44,7 @@ function App() {
       setSearchFilter(event.target.value)
   }
 
-  const addProduct = (name,value,id,image) => {    
+   const addProduct = (name,value,id,image) => {    
     const newCart = [...cart]
     const alreadyInCart = cart.find((element)=>element.id===id)
     if(!alreadyInCart){
@@ -54,7 +54,7 @@ function App() {
         alreadyInCart.quantity+=1
     }
     setCart(newCart)
-  } 
+  }   
 
   return(
     <MainContainer className="App">
@@ -84,6 +84,7 @@ function App() {
         cart={cart}
         setCart={setCart}
         addProduct={addProduct}
+        
         />
       </Container>
     </MainContainer>

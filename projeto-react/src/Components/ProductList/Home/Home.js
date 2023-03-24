@@ -12,9 +12,11 @@ export const Home = (props) =>{
     return(
         <HomeContainer>
             <HomeHeader>
+                Ordenar
                 <select onChange={changeOrdination}>
-                    <option value="crescente">Crescente</option>
-                    <option value="decrescente">Decrescente</option>
+                    <option>-------------</option>
+                    <option value="crescente">Menor preço</option>
+                    <option value="decrescente">Maior preço</option>
                 </select>
             </HomeHeader>
             <ProductCardContainer>
@@ -29,8 +31,10 @@ export const Home = (props) =>{
             .filter((element) => {
                 return element.name.toLowerCase().includes(props.searchFilter.toLowerCase())
             })
-            .filter((element) => {
-                if((props.minFilter <= element.value) && (element.value <= props.maxFilter)){
+            .filter((element)=>{
+                if(props.minFilter <= element.value && props.maxFilter>= element.value){
+                    return element
+                }if(props.minFilter <= element.value && props.maxFilter === ""){
                     return element
                 }
             })

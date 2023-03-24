@@ -3,6 +3,7 @@ import { CartContainer,ClearButton } from "./cartStyle";
 import { Items } from "../Items/Items"; 
 
 export const Cart = (props) =>{
+
     const removeProduct = (id) => {
         const newCart = [...props.cart]
         const alreadyInCart = props.cart.find((element)=>element.id===id)
@@ -20,7 +21,8 @@ export const Cart = (props) =>{
     }
 
     const totalValue = props.cart.reduce((total,current) =>{
-        return total+(current.value*current.quantity)
+        const cont = total+(current.value*current.quantity)
+        return cont
     },0)
     
     return(
@@ -32,7 +34,7 @@ export const Cart = (props) =>{
                 key={index}
                 name={element.name}
                 value={element.value*element.quantity}
-                quantity={element.quantity}
+                quantity={element.quantity} 
                 id={element.id}
                 removeProduct={removeProduct}
                 image={element.image}
@@ -40,8 +42,11 @@ export const Cart = (props) =>{
                 />
                 )
             })} 
-            <p>Valor Total: {totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+          {<p>Valor Total:
+        
+            {totalValue.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>} 
             <ClearButton onClick={clearCart}>Limpar Carrinho</ClearButton>
         </CartContainer>
+
     )
 }

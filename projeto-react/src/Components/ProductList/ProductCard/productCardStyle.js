@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductCardContainer = styled.div`
-    width:40%;
+    width:30%;
     height:40%;
     display:flex;
     flex-direction:column;
@@ -29,11 +29,6 @@ export const Button = styled.div`
     padding-bottom:0.5rem;
 `
 export const Image = styled.img`
-     &:hover{
-        -moz-transform: scale(1.1);
-	    -webkit-transform: scale(1.1);
-	    transform: scale(1.1);
-    }
     width:100%;
 `
 
