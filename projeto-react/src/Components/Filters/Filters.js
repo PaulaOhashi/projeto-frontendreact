@@ -1,7 +1,13 @@
-import { FiltersContainer,Form,Input,Label } from "./filtersStyle"
+import { FiltersContainer,Form,Input,Label,Button } from "./filtersStyle"
 
 
 const Filters = (props) => {
+   const clearFilter = () =>{
+    props.changeMaxFilter("")
+    props.changeMinFilter("")
+    props.changeSearchFilter("")
+   }
+   
     return(
         <FiltersContainer>
             <h2>Filtros</h2>
@@ -18,6 +24,7 @@ const Filters = (props) => {
                     Busca por nome:
                     <Input value={props.searchFilter} onChange={props.changeSearchFilter}/>
                 </Label>
+                <Button onClick={clearFilter}>Limpar Filtros</Button>
             </Form>
         </FiltersContainer>
     )

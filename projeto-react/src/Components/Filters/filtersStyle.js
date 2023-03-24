@@ -26,3 +26,17 @@ export const Label = styled.label`
     display:flex;
     flex-direction:column;
 `
+
+export const Button = styled.button`
+    width:80%;
+    height:4vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:0.2rem;
+    &:hover{
+        -moz-transform: scale(1.1);
+	    -webkit-transform: scale(1.1);
+	    transform: scale(1.1);
+    }
+`
